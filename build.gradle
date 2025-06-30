@@ -94,6 +94,8 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.19'
 
     //10 spring-tx
+    //스프링 트랜잭션(Spring Transaction) 기능을 위한 모듈로,
+    //데이터베이스 작업에서 일관성과 원자성을 유지하기 위해 사용
     // https://mvnrepository.com/artifact/org.springframework/spring-tx
     implementation group: 'org.springframework', name: 'spring-tx', version: '5.3.19'
 
