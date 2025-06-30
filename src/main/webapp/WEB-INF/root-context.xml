@@ -10,4 +10,22 @@
 
 <!--    그룹으로 지정해보기, 폴더를 등록해보기-->
     <context:component-scan base-package="com.busanit501.spring_project.sample"/>
+
+<!--    히카리 관련 설정은 따로 작성 해도 되지만, 저희 설정 내용을 복붙-->
+    <!--    핵심 역할을 하는 디비 연결 풀, 시스템에 인스턴스로 등록-->
+    <!--    HikaryConfig hikariConfig = new hikariConfig();-->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <!--        속성 옵션 설정해서, 작업.-->
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/webdb"></property>
+        <property name="username" value="webuser"></property>
+        <property name="password" value="webuser"></property>
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="cachePrepStmts">true</prop>
+                <prop key="prepStmtCacheSize">250</prop>
+                <prop key="prepStmtCacheSqlLimit">2048</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
