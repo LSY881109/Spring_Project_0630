@@ -19,4 +19,8 @@ public class SampleService {
     // 방법2,
     // 생성자 주입 방식. -> 롬복 이용하기. ->@RequiredArgsConstructor
     private final  SampleDAO sampleDAO;
+    // 문제점, 제시.
+    // 1, SampleDAO 를 구현한 , 구현체 클래스가 1개였다가
+    // 구현체 클래스가 2개인 상황.
+    // 시스템에서는 어느 @Repository 사용할지 의문?
 }
