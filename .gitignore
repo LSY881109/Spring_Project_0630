@@ -39,5 +39,5 @@ bin/
 .vscode/
 
 ### Mac OS ###
-/logs/
-
+logs/
+*.log
