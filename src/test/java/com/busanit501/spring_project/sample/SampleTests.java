@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+
 @Log4j2
 //JUnit 5 버전에서 테스트 도구를 이용하기 위해서 필요함.
 @ExtendWith(SpringExtension.class)
@@ -23,6 +26,10 @@ public class SampleTests {
 
     @Autowired
     private SampleService sampleService;
+    // root-context.xml 설정 파일에, dataSource 이름의 객체안에 포함, hikariConfig 객체를 포함하고 있음.
+    // 서버 시작시, 자동으로 객체를 생성 해주니, 우리는 이용하기.
+    @Autowired
+    private DataSource dataSource;
 
     @Test
     public void testSampleService() {
@@ -30,6 +37,15 @@ public class SampleTests {
         log.info("testSampleService======의존성 주입 테스트1");
         log.info("sampleService 의 인스턴스 조회 : " + sampleService);
         Assertions.assertNotNull(sampleService);
+    }
+
+    // 디비 연결 테스트
+    @Test
+    public void testConnection () throws Exception {
+        Connection connection = dataSource.getConnection();
+        log.info("connection 의 유무 : "+ connection);
+        Assertions.assertNotNull(connection);
+        connection.close();
     }
 
 }
