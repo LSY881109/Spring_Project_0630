@@ -3,6 +3,7 @@ package com.busanit501.spring_project.sample;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,9 @@ public class SampleService {
 
     // 방법2,
     // 생성자 주입 방식. -> 롬복 이용하기. ->@RequiredArgsConstructor
+    // 해결책2,
+    // 우리가 지정한 라벨을 표기. 결론, 선택.
+    @Qualifier("normal")
     private final  SampleDAO sampleDAO;
     // 문제점, 제시.
     // 1, SampleDAO 를 구현한 , 구현체 클래스가 1개였다가
