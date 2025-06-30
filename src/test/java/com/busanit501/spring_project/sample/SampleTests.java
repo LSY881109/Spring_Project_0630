@@ -26,6 +26,7 @@ public class SampleTests {
 
     @Test
     public void testSampleService() {
+
         log.info("testSampleService======의존성 주입 테스트1");
         log.info("sampleService 의 인스턴스 조회 : " + sampleService);
         Assertions.assertNotNull(sampleService);
