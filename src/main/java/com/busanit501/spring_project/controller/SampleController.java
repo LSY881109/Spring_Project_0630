@@ -67,6 +67,7 @@ public class SampleController {
     // TodoDTO , 모델 클래스는 , 자동으로 화면까지 객체를 전달.
     // 자동 전달.
     public void ex4_1(TodoDTO todoDTO, Model model) {
+        todoDTO.setTitle("임시제목만 입력");
         log.info("SampleController 작업중. ex4_1,서버 -> 웹 화면 데이터 전달");
         log.info("데이터 탑재를 하는 부분이 없는데, 화면에서, 해당 todoDTO를 자동으로 이용가능함");
     }
