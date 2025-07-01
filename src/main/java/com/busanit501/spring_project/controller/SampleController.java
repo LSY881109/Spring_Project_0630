@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 
@@ -75,6 +76,22 @@ public class SampleController {
         todoDTO.setTitle("임시제목만 입력");
         log.info("SampleController 작업중. ex4_1,서버 -> 웹 화면 데이터 전달");
         log.info("데이터 탑재를 하는 부분이 없는데, 화면에서, 해당 todoDTO를 자동으로 이용가능함");
+    }
+
+    @GetMapping("/ex5")
+    public String ex5(RedirectAttributes redirectAttributes) {
+        // 서버 -> 웹브라우저 데이터 전달
+        // 방법1 ) redirectAttributes.addAttribute(키, 값) : 데이터 추가
+        // 리다이렉트할 URL에 쿼리스트링으로 추가함.
+        redirectAttributes.addAttribute("name","이상용");
+        // 방법2) redirectAttributes.addFlashAttribute(키,값) : 데이터 추가
+        // URL에 보이지는 않지만, JSP 화면에서는 1회용으로 사용가능. 즉 1번 사용후 휘발된다.
+        redirectAttributes.addFlashAttribute("result","1회용 데이터 전달");
+        return "redirect:/ex6";
+    }
+    @GetMapping("/ex6")
+    public void ex6(){
+
     }
 
 }
