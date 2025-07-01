@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+
 @Controller
 @Log4j2
 public class SampleController {
@@ -34,6 +36,14 @@ public class SampleController {
                     @RequestParam(name = "age", defaultValue = "20") int age) {
         log.info("SampleController 작업중. ex2, 값이 없는 경우, 기본값 이용");
         log.info("name:"+name+",age:"+age);
+    }
+
+    // 날짜 포맷터 인경우.
+    // http://localhost:8080/ex3?dueDate=2025-07-01
+    @GetMapping("/ex3")
+    public void ex3(LocalDate dueDate) {
+        log.info("SampleController 작업중. ex3, 날짜 포맷터 형식인 경우");
+        log.info("dueDate:"+dueDate);
     }
 
 }
