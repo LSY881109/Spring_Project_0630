@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>Hello JSP</h1>
+<h2>축하합니다. 1차 스프링 프로젝트 기본 세팅 완료했음.</h2>
 </body>
 </html>
