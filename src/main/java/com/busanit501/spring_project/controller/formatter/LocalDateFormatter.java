@@ -1,4 +1,4 @@
-package com.busanit501.spring_project.controller;
+package com.busanit501.spring_project.controller.formatter;
 
 import org.springframework.format.Formatter;
 
