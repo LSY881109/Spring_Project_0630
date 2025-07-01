@@ -17,4 +17,15 @@ public class SampleController {
         log.info("hello.......");
     }
 
+    // 단순 파라미터 자동수집
+    @GetMapping("ex1")
+    // 기본 자료형으로 정의했고,
+    // 화면에서 , 쿼리스트링 형식으로 , get 방식으로
+    // 데이터 전달
+    // http://localhost:8080/ex1?name=lsy&age=20
+    public void ex1(String name, int age){
+        log.info("SampleController 작업중.");
+        log.info("name:"+name+",age:"+age);
+    }
+
 }
