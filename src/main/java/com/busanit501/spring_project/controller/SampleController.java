@@ -56,7 +56,7 @@ public class SampleController {
     @GetMapping("/ex4")
     public void ex4(Model model) {
         log.info("SampleController 작업중. ex4,서버 -> 웹 화면 데이터 전달");
-        model.addAttribute("message","오늘 점심 뭐 먹었니?");
+        model.addAttribute("message","<script>alert('공격예시, 일단 자바스크립트 실행')</script>");
 
     }
 
