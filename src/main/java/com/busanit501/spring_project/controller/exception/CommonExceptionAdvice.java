@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
+
 @ControllerAdvice
 @Log4j2
 public class CommonExceptionAdvice {
@@ -35,5 +37,34 @@ public class CommonExceptionAdvice {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .contentType(MediaType.valueOf("text/plain; charset=utf-8"))
                 .body("숫자 타입 예외 발생입니다");
+    }
+
+    // 예외2, 범용적으로 예외처리하는 메서드 추가. 
+    @ResponseBody
+    @ExceptionHandler(Exception.class)
+    public String exceptCommon(Exception exception){
+        // 서버 콘솔에서 예외 메세지 확인
+        log.error("==exceptCommon, 일반적인 공통 예외 처리하기. ==================");
+        log.error(exception.getMessage());
+
+        // 화면에서 예외 메세지 확인, html 태그를 문자열 형식으로 전달하면, 
+        // 웹 브라우저 html 읽어서, 표시함.
+        StringBuffer buffer = new StringBuffer("<ul>");
+        buffer.append("<li>" + exception.getMessage() + "</li>");
+
+        // 예외 발생 추적 내용을 같이 포함해서 전달.
+        // 병렬처리, 중간 집계, 최종 처리
+        // stream(exception.getStackTrace()) : 예외의 발생 가계도 전체를 갖고 있고,
+        // forEach( : 전체 요소 -> 하나씩 요소를 꺼내는 작업,
+        // 꺼내서, 버퍼라는 문자열 추가하고, 여기까지 중간 집계
+        // 최종 처리.
+        Arrays.stream(exception.getStackTrace()).forEach(
+                stackTraceElement -> {
+                    buffer.append("<li>" + stackTraceElement.toString() + "</li>");
+                }
+        );
+        buffer.append("</ul>");
+        return buffer.toString();
+        
     }
 }
