@@ -3,6 +3,7 @@ package com.busanit501.spring_project.controller;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Log4j2
@@ -24,7 +25,14 @@ public class SampleController {
     // 데이터 전달
     // http://localhost:8080/ex1?name=lsy&age=20
     public void ex1(String name, int age){
-        log.info("SampleController 작업중.");
+        log.info("SampleController 작업중. ex1");
+        log.info("name:"+name+",age:"+age);
+    }
+
+    @GetMapping("/ex2")
+    public void ex2(@RequestParam(name = "name", defaultValue = "사용자") String name,
+                    @RequestParam(name = "age", defaultValue = "20") int age) {
+        log.info("SampleController 작업중. ex2, 값이 없는 경우, 기본값 이용");
         log.info("name:"+name+",age:"+age);
     }
 
