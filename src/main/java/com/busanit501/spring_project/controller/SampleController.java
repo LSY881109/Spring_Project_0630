@@ -2,6 +2,7 @@ package com.busanit501.spring_project.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -47,6 +48,16 @@ public class SampleController {
     public void ex3(LocalDate dueDate) {
         log.info("SampleController 작업중. ex3, 날짜 포맷터 형식인 경우");
         log.info("dueDate:"+dueDate);
+    }
+
+    // 서버 -> 웹 화면, 데이터 전달.
+    // 데이터를 전달 받은 화면이 필요, /WEB-INF/views/ex4.jsp
+    // 화면에서 ,EL 표기법으로 넘어온 데이터를 받기, 가져오기. 작업.
+    @GetMapping("/ex4")
+    public void ex4(Model model) {
+        log.info("SampleController 작업중. ex4,서버 -> 웹 화면 데이터 전달");
+        model.addAttribute("message","오늘 점심 뭐 먹었니?");
+
     }
 
 }
