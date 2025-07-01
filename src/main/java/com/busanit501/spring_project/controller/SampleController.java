@@ -95,7 +95,10 @@ public class SampleController {
     }
 
     @GetMapping("/ex7")
+    //http://localhost:8080/ex7?p1=abc&p2=def
     public void ex7(String p1, int p2){
+        // 시나리오는, 화면에서, 2개다 문자열로 전달해서, 강제로 예외 발생시키기,
+
         log.info("SampleController 작업중. ex7, 예에 처리 예시");
         log.info("p1:"+p1);
         log.info("p2:"+p2);
