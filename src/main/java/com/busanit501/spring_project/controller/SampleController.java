@@ -1,5 +1,6 @@
 package com.busanit501.spring_project.controller;
 
+import com.busanit501.spring_project.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,8 +57,18 @@ public class SampleController {
     @GetMapping("/ex4")
     public void ex4(Model model) {
         log.info("SampleController 작업중. ex4,서버 -> 웹 화면 데이터 전달");
-        model.addAttribute("message","<script>alert('공격예시, 일단 자바스크립트 실행')</script>");
+//        model.addAttribute("message","<script>alert('공격예시, 일단 자바스크립트 실행')</script>");
+        // 공격 예시 - 사용자 브라우저가 naver.com으로 이동하는 자바스크립트 삽입
+        model.addAttribute("message", "<script>location.href='https://www.naver.com'</script>");
 
+    }
+
+    @GetMapping("/ex4_1")
+    // TodoDTO , 모델 클래스는 , 자동으로 화면까지 객체를 전달.
+    // 자동 전달.
+    public void ex4_1(TodoDTO todoDTO, Model model) {
+        log.info("SampleController 작업중. ex4_1,서버 -> 웹 화면 데이터 전달");
+        log.info("데이터 탑재를 하는 부분이 없는데, 화면에서, 해당 todoDTO를 자동으로 이용가능함");
     }
 
 }
