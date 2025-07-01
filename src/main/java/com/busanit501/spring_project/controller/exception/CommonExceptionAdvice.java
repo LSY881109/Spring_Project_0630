@@ -5,10 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.util.Arrays;
 
@@ -66,5 +64,14 @@ public class CommonExceptionAdvice {
         buffer.append("</ul>");
         return buffer.toString();
         
+    }
+
+    //예외3, 404 , not found  처리 ,
+    // 리턴 타입, String , 문자열이면, 그 내용의 jsp 화면으로 감.
+    // /WEB-INF/views/custom404.jsp 로 연결됨.
+    @ExceptionHandler(NoHandlerFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public  String notFound() {
+        return "custom404";
     }
 }
