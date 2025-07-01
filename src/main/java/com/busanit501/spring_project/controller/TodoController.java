@@ -1,5 +1,6 @@
 package com.busanit501.spring_project.controller;
 
+import com.busanit501.spring_project.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,10 +36,13 @@ public class TodoController {
     
     // 로직처리. 
     // 최종 url : /todo/register , 
-    // 메소드 : post 
+    // 메소드 : post
+    // 화면에서, TodoDTO 형식의 데이터를 전달을 받으면,
+    // 각각 받는게 아니라, TodoDTO 모델 클래스로 한번에 받기 예시.
     @PostMapping("/register")
-    public void registerPost() {
+    public void registerPost(TodoDTO todoDTO) {
         log.info("TodoController에서 작업, register , post , 로직처리");
+        log.info("todoDTO:"+todoDTO);
     }
 
 }

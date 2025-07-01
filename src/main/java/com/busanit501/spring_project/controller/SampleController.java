@@ -40,6 +40,9 @@ public class SampleController {
 
     // 날짜 포맷터 인경우.
     // http://localhost:8080/ex3?dueDate=2025-07-01
+    // 화면에서 전달 된 파라미터 쿼리스트링은 무조건 문자열
+    // 서버에서 받을 때 LocalDate 형 일치가 안된다.
+    // 그래서, 서버에서 시작시, 형 변환을 자동으로 해주겠다.
     @GetMapping("/ex3")
     public void ex3(LocalDate dueDate) {
         log.info("SampleController 작업중. ex3, 날짜 포맷터 형식인 경우");
