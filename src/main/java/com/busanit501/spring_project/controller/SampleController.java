@@ -98,6 +98,7 @@ public class SampleController {
         redirectAttributes.addAttribute("name","이상용");
         // 방법2) redirectAttributes.addFlashAttribute(키,값) : 데이터 추가
         // URL에 보이지는 않지만, JSP 화면에서는 1회용으로 사용가능. 즉 1번 사용후 휘발된다.
+        // 에러를 따로 1회성으로 보여줄 때 많이 사용함.
         redirectAttributes.addFlashAttribute("result","1회용 데이터 전달");
         return "redirect:/ex6";
     }
