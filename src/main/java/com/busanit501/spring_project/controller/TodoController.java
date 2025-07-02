@@ -1,6 +1,8 @@
 package com.busanit501.spring_project.controller;
 
 import com.busanit501.spring_project.dto.TodoDTO;
+import com.busanit501.spring_project.service.TodoService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -13,11 +15,13 @@ import javax.validation.Valid;
 
 @Controller
 @Log4j2
+@RequiredArgsConstructor
 // 대표 url,/todo,
 // 밑에 메서드 하위  url 주소를 지정함.
 // 최종 url, /todo/지정한 주소
 @RequestMapping("/todo")
 public class TodoController {
+    private final TodoService todoService;
 
     // 최종 url : /todo/list
     @RequestMapping("/list")
@@ -64,6 +68,7 @@ public class TodoController {
 
 
         // 실제 디비 반영하는 코드,
+        todoService.register(todoDTO);
 
         return "redirect:/todo/list";
     }
