@@ -70,6 +70,7 @@ http://localhost:8080/resources/test.html-->
                     <div class="card-body">
 <%--                        여기에 목록을 출력하기--%>
                     <h5 class="card-title">목록</h5>
+<%--                        ${dtoList}--%>
                         <table class="table">
                             <thead>
                             <tr>
@@ -81,9 +82,9 @@ http://localhost:8080/resources/test.html-->
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="dtoList" var="dto">
+                            <c:forEach items="${dtoList}" var="dto">
                                 <tr>
-                                    <th scope="row"><c:out value="${dto.tno}"/></th>
+                                    <th scope="row"><c:out value="${dto.tno}"></c:out></th>
                                     <td><c:out value="${dto.title}"/></td>
                                     <td><c:out value="${dto.writer}"/></td>
                                     <td><c:out value="${dto.dueDate}"/></td>
