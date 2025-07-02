@@ -26,21 +26,27 @@ public class SampleController {
     }
 
     // 단순 파라미터 자동수집
-    @GetMapping("ex1")
+    @GetMapping("/ex1")
     // 기본 자료형으로 정의했고,
     // 화면에서 , 쿼리스트링 형식으로 , get 방식으로
     // 데이터 전달
-    // http://localhost:8080/ex1?name=lsy&age=20
-    public void ex1(String name, int age) {
+    // http://localhost:8080/ex1?name=lsy&age=20&hobby=수영
+    public void ex1(String name, int age, String hobby) {
+        // 이런 형식으로 데이터 전달을 받았지만, post
+        // String mid = req.getParameter("mid");
+        // 지금 자동 맵핑
         log.info("SampleController 작업중. ex1");
         log.info("name:" + name + ",age:" + age);
+        log.info("hobby:" + hobby);
     }
 
     @GetMapping("/ex2")
     public void ex2(@RequestParam(name = "name", defaultValue = "사용자") String name,
-                    @RequestParam(name = "age", defaultValue = "20") int age) {
+                    @RequestParam(name = "age", defaultValue = "20") int age,
+                    @RequestParam(name = "hobby", defaultValue = "운동") String hobby) {
         log.info("SampleController 작업중. ex2, 값이 없는 경우, 기본값 이용");
         log.info("name:" + name + ",age:" + age);
+        log.info("hobby:" + hobby);
     }
 
     // 날짜 포맷터 인경우.
@@ -73,7 +79,8 @@ public class SampleController {
 //    public void ex4_1(TodoDTO todoDTO, Model model) {
     // todoDTO 이름 말고, dto 라는 이름으로 전달하기.
     // 화면에서는 사용시, todoDTO 아니라, dto라는 이름으로 이용하기.
-    public void ex4_1(@ModelAttribute("dto") TodoDTO todoDTO, Model model) {
+    public void ex4_1( TodoDTO todoDTO, Model model) {
+//    public void ex4_1(@ModelAttribute("dto") TodoDTO todoDTO, Model model) {
         todoDTO.setTitle("임시제목만 입력");
         log.info("SampleController 작업중. ex4_1,서버 -> 웹 화면 데이터 전달");
         log.info("데이터 탑재를 하는 부분이 없는데, 화면에서, 해당 todoDTO를 자동으로 이용가능함");
