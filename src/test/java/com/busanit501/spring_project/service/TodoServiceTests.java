@@ -35,4 +35,9 @@ public class TodoServiceTests {
         List<TodoDTO> dtoList = todoService.getAll();
         dtoList.forEach(dto -> log.info(dto));
     }
+    @Test
+    public void testGetByTno() {
+        TodoDTO todoDTO = todoService.selectByTno(21L);
+        log.info(todoDTO);
+    }
 }
