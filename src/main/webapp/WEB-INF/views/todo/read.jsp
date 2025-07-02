@@ -1,5 +1,7 @@
 <!--베이스 레이아웃 접근 주소 ,
 http://localhost:8080/resources/test.html-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -60,29 +62,29 @@ http://localhost:8080/resources/test.html-->
                         <div class="input-group mb-3">
                             <span class="input-group-text">Tno</span>
                             <input type="text" name="tno" class="form-control" readonly
-                                   value=<c:out value="${todoDTO.tno}"></c:out> >
+                                   value=<c:out value="${dto.tno}"></c:out> >
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Title</span>
                             <input type="text" name="title" class="form-control" readonly
-                                   value='<c:out value="${todoDTO.title}"></c:out>'>
+                                   value='<c:out value="${dto.title}"></c:out>'>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">DueDate</span>
                             <input type="date" name="dueDate" class="form-control" readonly
-                                   value=<c:out value="${todoDTO.dueDate}"></c:out>>
+                                   value=<c:out value="${dto.dueDate}"></c:out>>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">Writer</span>
                             <input type="text" name="writer" class="form-control" readonly
-                                   value=<c:out value="${todoDTO.writer}"></c:out>>
+                                   value=<c:out value="${dto.writer}"></c:out>>
                         </div>
                         <div class="input-group mb-3">
                             <label class="form-check-label">Finished &nbsp</label>
                             <input type="checkbox" name="finished" class="form-check-input" readonly
-                            ${todoDTO.finished ? "checked" : ""}>
+                            ${dto.finished ? "checked" : ""}>
                         </div>
                         <div class="my-4">
                             <div class="float-end">
