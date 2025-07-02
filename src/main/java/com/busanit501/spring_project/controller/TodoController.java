@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @Log4j2
@@ -41,9 +42,12 @@ public class TodoController {
     // 화면에서, TodoDTO 형식의 데이터를 전달을 받으면,
     // 각각 받는게 아니라, TodoDTO 모델 클래스로 한번에 받기 예시.
     @PostMapping("/register")
-    public void registerPost(TodoDTO todoDTO) {
+    public String registerPost(TodoDTO todoDTO, RedirectAttributes redirectAttributes) {
         log.info("TodoController에서 작업, register , post , 로직처리");
         log.info("todoDTO:"+todoDTO);
+        // 실제 디비 반영하는 코드,
+
+        return "redirect:/todo/list";
     }
 
 }
