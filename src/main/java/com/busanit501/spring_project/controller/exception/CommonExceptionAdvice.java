@@ -65,7 +65,7 @@ public class CommonExceptionAdvice {
         );
         buffer.append("</ul>");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .contentType(MediaType.valueOf("text/plain; charset=utf-8"))
+                .contentType(MediaType.valueOf("text/html; charset=utf-8"))
                 .body(buffer.toString());
 //        return buffer.toString();
 
