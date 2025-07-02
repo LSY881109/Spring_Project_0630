@@ -5,6 +5,7 @@ import com.busanit501.spring_project.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,10 @@ public class TodoController {
     // /WEB-INF/views/todo/list.jsp , 가리킴.
     // 자동 연결, 뷰 리졸버라는 친구의 업무.
     // 메소드명이 아니라, url 주소로 , 화면 연결을함.
-    public void list2(){
+    public void list2(Model model) {
         log.info("TodoController에서 작업, list 호출 ");
+        // 서비스로 부터 외주 맡겨서, 디비 정보를 받아와서, 화면에 전달, 탑재하기.
+        model.addAttribute("dtoList", todoService.getAll());
     }
 
     // 최종 url : /todo/register
