@@ -1,21 +1,18 @@
-package com.busanit501.spring_project;
+package com.busanit501.spring_project.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
-@Builder
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class TodoDTO {
+@Builder
+public class TodoVO {
     private Long tno;
     private String title;
     private LocalDate dueDate;
     private boolean finished;
     private String writer;
-
 }

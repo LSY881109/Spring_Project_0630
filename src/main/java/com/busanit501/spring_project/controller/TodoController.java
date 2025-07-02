@@ -1,6 +1,6 @@
 package com.busanit501.spring_project.controller;
 
-import com.busanit501.spring_project.TodoDTO;
+import com.busanit501.spring_project.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
