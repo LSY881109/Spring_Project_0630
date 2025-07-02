@@ -79,8 +79,12 @@ public class SampleController {
 //    public void ex4_1(TodoDTO todoDTO, Model model) {
     // todoDTO 이름 말고, dto 라는 이름으로 전달하기.
     // 화면에서는 사용시, todoDTO 아니라, dto라는 이름으로 이용하기.
-    public void ex4_1( TodoDTO todoDTO, Model model) {
-//    public void ex4_1(@ModelAttribute("dto") TodoDTO todoDTO, Model model) {
+//    public void ex4_1( TodoDTO todoDTO, Model model) {
+    // todoDTO 이름을 -> dto 라고 변경해서 사용하기.
+    // 즉, 화면에서, dto 이름으로 EL 표기법으로 사용함. ${dto}
+    public void ex4_1(@ModelAttribute("dto") TodoDTO todoDTO, Model model) {
+        // 비교, jsp 프로젝트에서, 서버에서, 데이터 탑재 형식.
+        // req.setAttribute("dtoList", dtoList)
         todoDTO.setTitle("임시제목만 입력");
         log.info("SampleController 작업중. ex4_1,서버 -> 웹 화면 데이터 전달");
         log.info("데이터 탑재를 하는 부분이 없는데, 화면에서, 해당 todoDTO를 자동으로 이용가능함");
