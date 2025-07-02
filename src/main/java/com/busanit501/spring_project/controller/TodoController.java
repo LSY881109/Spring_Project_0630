@@ -20,7 +20,8 @@ public class TodoController {
     // void 라고하면, 메서드 명 : list
     // /WEB-INF/views/todo/list.jsp , 가리킴.
     // 자동 연결, 뷰 리졸버라는 친구의 업무.
-    public void list(){
+    // 메소드명이 아니라, url 주소로 , 화면 연결을함.
+    public void list2(){
         log.info("TodoController에서 작업, list 호출 ");
     }
 
