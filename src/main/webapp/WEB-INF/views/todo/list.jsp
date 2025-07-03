@@ -117,7 +117,7 @@ http://localhost:8080/resources/test.html-->
                                     </li>
                                 </c:if>
                                 <c:forEach begin="${responseDTO.start}" end="${responseDTO.end}" var="num">
-                                    <li class="page-item" ${responseDTO.page == num ? "active" : ""}>
+                                    <li class="page-item ${responseDTO.page == num ? "active" : "" }">
                                         <a class="page-link" href="#">
                                             ${num}
                                     </a>
