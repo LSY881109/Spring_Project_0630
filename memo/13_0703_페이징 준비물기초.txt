@@ -56,7 +56,7 @@ select * from tbl_todo order by tno desc limit  30((n-1)*10), 10;
 # Mybatis , #{skip} -> getSkip 게터 이용해서, 값을 설정,
 
 # select * from tbl_todo order by tno desc limit (n-1)페이지, (페이지당 출력할 갯수);
-# select * from tbl_todo order by tno desc limit (n-1), 10;
+# select * from tbl_todo order by tno desc limit (n-1)*10, 10;
 
 ==================================================================
 #페이징 할 때, 필요한 준비물 중에서, 전체갯수 필요함.
@@ -89,6 +89,7 @@ select * from tbl_todo order by tno desc limit  30((n-1)*10), 10;
 3 / 10 = 0.3 , 올림 -> 1, 곱하기 10 => 10
 :
 10 / 10 = 1.0 , 올림 -> 1, 곱하기 10 => 10
+
 11 / 10 = 1.1 , 올림 -> 2, 곱하기 10 => 20
 12 / 10 = 1.2 , 올림 -> 2, 곱하기 10 => 20
 
