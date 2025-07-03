@@ -82,8 +82,12 @@ public class TodoController {
     }
     @GetMapping("/read")
     public void read(Long tno, Model model) {
+        // 서버에서, 디비로 부터 tno 번호로 하나의 todo 정보를 조회
+        // 정방향, 찍고, 역방향으로 돌아온 상태.
         TodoDTO todoDTO = todoService.selectByTno(tno);
         log.info(todoDTO);
+        // 서버 -> 웹 화면 데이터 전달. 키 : dto , 값 : 객체
+        // 화면에서, 사용시, 키 :dto로 사용하면됨.
         model.addAttribute("dto", todoDTO);
     }
 

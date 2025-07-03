@@ -92,6 +92,27 @@ http://localhost:8080/resources/test.html-->
                                 <button type="button" class="btn btn-secondary">목록가기</button>
                             </div>
                         </div>
+                        <script>
+                            // 자바스크립트 , 좀더 편하게 사용하는 도구들 많음.
+                            // 대표적으로 jQuery, 많이 사용함. -> 리액트 , Vue.js ,
+                            // 순수 자바스크립트, 바닐라 자바스크립라고 표현함,
+                            // 바닐라로, 특정 요소를 선택하고, 로직 처리함.
+                            document.querySelector(".btn-primary").addEventListener("click",
+                            function (e) {
+                                // read , 읽기전용. 변결 불가.
+                                // 수정폼으로 가기. 데이터 변경 가능.
+                                self.location = "/todo/modify?tno="+${dto.tno}
+                            }, false)
+
+                            document.querySelector(".btn-secondary").addEventListener("click",
+                                function (e) {
+                                    // read , 읽기전용. 변결 불가.
+                                    // 수정폼으로 가기. 데이터 변경 가능.
+                                    self.location = "/todo/list"
+                                }, false)
+
+
+                        </script>
                         <%--                        </form>--%>
                         <%--                        Todo 입력 폼 여기에 작성--%>
 
