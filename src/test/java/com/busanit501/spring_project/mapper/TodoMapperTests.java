@@ -66,11 +66,21 @@ public class TodoMapperTests {
     public void testSelectListwithPage() {
         // 준비물 , 화면에서 전달받은 페이징 정보가 필요,
         PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-                .page(1) // 확인시, 이 페이지 번호만 변경하면 됨.
+                .page(2) // 확인시, 이 페이지 번호만 변경하면 됨.
                 .size(10)
                 .build();
         List<TodoVO> todoVOList = todoMapper.selectList(pageRequestDTO);
         todoVOList.forEach(vo -> log.info(vo));
+     }
+
+     @Test
+    public void testSelectCount() {
+         PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                 .page(1) // 확인시, 이 페이지 번호만 변경하면 됨.
+                 .size(10)
+                 .build();
+        int total = todoMapper.getCount(pageRequestDTO);
+        log.info("total : " + total);
      }
 
 }

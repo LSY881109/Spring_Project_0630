@@ -21,4 +21,6 @@ public interface TodoMapper {
     // 페이징 처리가 된 전체 리스트
     // 화면에서, 어느 페이지를 선택했는지를 알아야 정보를 줄수 있음.
     List<TodoVO> selectList(PageRequestDTO pageRequestDTO);
+    // 페이징 준비물 2, 전체 갯수 파악
+    int getCount(PageRequestDTO pageRequestDTO);
 }
