@@ -99,4 +99,25 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
+    @PostMapping("/modify")
+    public String modify(@Valid TodoDTO todoDTO,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes) {
+        if(bindingResult.hasErrors()){
+            log.info("수정 적용 부분에서, 유효성 통과 못할 경우");
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            // 현재 수정 화면에서, 수정할 내용을 입력 후, 유효성 체크 통과를 못했다면,
+            // 다시 수정 화면으로 이동해야함. 어는 tno 번호 에서 작업하는지 알려줘야함.
+            // 쿼리 스트링으로 ?tno=21 , 달고 화면에 전달함.
+            redirectAttributes.addAttribute("tno", todoDTO.getTno());
+            // 최종 url : /todo/modify?tno=21
+            return "redirect:/todo/modify";
+        }
+        log.info("수정 로직처리 post 작업중 넘어온 데이터 확인 todoDTO: " + todoDTO);
+        todoService.modify(todoDTO);
+        //PRG 패턴,
+        return "redirect:/todo/list";
+
+    }
+
 }

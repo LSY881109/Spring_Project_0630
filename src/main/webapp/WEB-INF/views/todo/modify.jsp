@@ -131,6 +131,23 @@ http://localhost:8080/resources/test.html-->
 
                             }, false)
 
+                            //수정하기. 버튼 클릭시, 자바스크립트로 서버에 데이터 전달 해보기.
+                            document.querySelector(".btn-primary").addEventListener("click", function (e){
+                                e.preventDefault();
+                                e.stopPropagation();
+
+                                formObj.action = "/todo/modify"
+                                formObj.method = "post"
+                                formObj.submit()
+                            },false)
+
+                            // 유효성 체크 안될 경우, 서버로부터 전달 받은 errors 출력하는 코드 추가
+                            // register.jsp , 로직과 같은 코드, 복붙
+                            const serverValidResult = {}
+                            <c:forEach items="${errors}" var="error">
+                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
+                            </c:forEach>
+                            console.log(serverValidResult)
 
                         </script>
                         <%--                        </form>--%>
