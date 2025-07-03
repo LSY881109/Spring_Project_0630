@@ -56,7 +56,7 @@ http://localhost:8080/resources/test.html-->
                 <!--        카드 시작 부분-->
                 <div class="card">
                     <div class="card-header">
-                        tno로 번호로 하나조회, 상세조회
+                        tno로 번호로 수정하는 화면
                     </div>
                     <div class="card-body">
                         <form action="/todo/modify" method="post">

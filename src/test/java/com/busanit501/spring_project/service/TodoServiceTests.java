@@ -44,4 +44,18 @@ public class TodoServiceTests {
     public void testDeleteByTno() {
         todoService.remove(15L);
     }
+    @Test
+    public void testUpdate() {
+        // 실제 디비 필요하고,
+        // 변경할 더미데이터 필요, TodoDTO 필요함.
+        // 잠깐, TodoVO , 디비와 직접 적인 연결하는 모델클래스
+        // setter 안씀, 이유? 불변성 유지,
+        // 방금 만든것 처럼, 따로 메서드를 만들어서 사용을함.
+        // DTO는 setter 상관이 없음.
+        // 자유롭게 프레젠테이션 로직에서, 자유롭게, 화면에 표현할것을
+        // 설정 하기위해서.
+        TodoDTO todoDTO = todoService.selectByTno(22L);
+        todoDTO.setTitle("수정 테스트, 서비스에서 진행.");
+        todoService.modify(todoDTO);
+    }
 }

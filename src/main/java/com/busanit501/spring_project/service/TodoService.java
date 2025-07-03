@@ -11,4 +11,5 @@ public interface TodoService {
     List<TodoDTO> getAll();
     TodoDTO selectByTno(Long tno);
     void remove(Long tno);
+    void modify(TodoDTO todoDTO);
 }

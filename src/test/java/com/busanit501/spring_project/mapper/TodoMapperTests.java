@@ -49,4 +49,14 @@ public class TodoMapperTests {
         // 실제 디비의 내용으로 tno 번호
         todoMapper.delete(18L);
     }
+
+    @Test
+    public void testUpdate() {
+        // 실제 디비 사용해야함.
+        // 수정할 더미 데이터 필요함.
+        TodoVO todoVO = todoMapper.selectByTno(22L);
+        todoVO.changeTitle("수정 테스트입니다");
+        todoMapper.update(todoVO);
+
+    }
 }
