@@ -1,5 +1,7 @@
 package com.busanit501.spring_project.service;
 
+import com.busanit501.spring_project.dto.PageRequestDTO;
+import com.busanit501.spring_project.dto.PageResponseDTO;
 import com.busanit501.spring_project.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
@@ -30,11 +32,11 @@ public class TodoServiceTests {
         todoService.register(todoDTO);
     }
 
-    @Test
-    public void testGetAll() {
-        List<TodoDTO> dtoList = todoService.getAll();
-        dtoList.forEach(dto -> log.info(dto));
-    }
+//    @Test
+//    public void testGetAll() {
+//        List<TodoDTO> dtoList = todoService.getAll();
+//        dtoList.forEach(dto -> log.info(dto));
+//    }
     @Test
     public void testGetByTno() {
         TodoDTO todoDTO = todoService.selectByTno(21L);
@@ -57,5 +59,17 @@ public class TodoServiceTests {
         TodoDTO todoDTO = todoService.selectByTno(22L);
         todoDTO.setTitle("수정 테스트, 서비스에서 진행.");
         todoService.modify(todoDTO);
+    }
+
+    @Test
+    public void testPaging() {
+        // 더미 데이터 필요함, 화면에서 전달받은 페이징 정보를 담은 PageRequestDTO 가 필요함.
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .build();
+        PageResponseDTO<TodoDTO> responseDTO = todoService.getList(pageRequestDTO);
+        log.info("서비스 단위테스트 중, 페이징 처리된 전체 조회 responseDTO:"+responseDTO);
+        responseDTO.getDtoList().stream().forEach(dto -> log.info(dto));
     }
 }

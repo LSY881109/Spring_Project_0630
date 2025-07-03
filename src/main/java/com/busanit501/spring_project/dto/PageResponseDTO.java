@@ -1,6 +1,8 @@
 package com.busanit501.spring_project.dto;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -17,6 +19,8 @@ import java.util.List;
 // 나중에, 다른 도메인으로 도 사용가능
 // 예) 댓글, 상품, 회원, 등, 목록화 할수 있는 주제는 다 페이징을 한다고 보면됨.
 // 매우 중요한 기술이다.
+@Getter
+@ToString
 public class PageResponseDTO<E> {
     private int page;
     private int size;
