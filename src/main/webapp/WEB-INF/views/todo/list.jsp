@@ -68,9 +68,9 @@ http://localhost:8080/resources/test.html-->
                         Todo 목록
                     </div>
                     <div class="card-body">
-<%--                        여기에 목록을 출력하기--%>
-                    <h5 class="card-title">목록</h5>
-<%--                        ${dtoList}--%>
+                        <%--                        여기에 목록을 출력하기--%>
+                        <h5 class="card-title">목록</h5>
+                        <%--                        ${dtoList}--%>
                         <table class="table">
                             <thead>
                             <tr>
@@ -82,13 +82,13 @@ http://localhost:8080/resources/test.html-->
                             </tr>
                             </thead>
                             <tbody>
-<%--                            페이징 처리전--%>
-<%--                            <c:forEach items="${dtoList}" var="dto">--%>
-<%--                                페이징 처리 후--%>
-                                <c:forEach items="${responseDTO.dtoList}" var="dto">
+                            <%--                            페이징 처리전--%>
+                            <%--                            <c:forEach items="${dtoList}" var="dto">--%>
+                            <%--                                페이징 처리 후--%>
+                            <c:forEach items="${responseDTO.dtoList}" var="dto">
                                 <tr>
                                     <th scope="row"><c:out value="${dto.tno}"></c:out></th>
-<%--                                    클릭시 : /todo/read?tno=21--%>
+                                        <%--                                    클릭시 : /todo/read?tno=21--%>
                                     <td>
                                         <a href="/todo/read?tno=${dto.tno}" class="text-decoration-none">
                                             <c:out value="${dto.title}"/>
@@ -102,17 +102,38 @@ http://localhost:8080/resources/test.html-->
                             </tbody>
 
                         </table>
-<%--                        페이징을 가리키는 네비게이션 , 부트 스트랩에서 가져와서 이용--%>
-                        <div class="float-end">
-                            <ul class="pagination flex-wrap">
+
+                        <%--                        페이징을 가리키는 네비게이션 , 부트 스트랩에서 가져와서 이용--%>
+                        <%--                        <div class="float-end">--%>
+                        <div>
+
+
+                            <%--                            페이징 네비게이션 화면 영역--%>
+                            <ul class="pagination flex-wrap justify-content-center">
+                                <%--                            이전 버튼--%>
+                                <c:if test="${responseDTO.prev}">
+                                    <li class="page-item">
+                                        <a class="page-link">Prev</a>
+                                    </li>
+                                </c:if>
                                 <c:forEach begin="${responseDTO.start}" end="${responseDTO.end}" var="num">
                                     <li class="page-item"><a class="page-link" href="#">
-                                        ${num}
+                                            ${num}
                                     </a></li>
                                 </c:forEach>
+                                <%--                        다음 버튼 표시--%>
+                                    <c:if test="${responseDTO.next}">
+                                        <li class="page-item">
+                                            <a class="page-link">Next</a>
+                                        </li>
+                                    </c:if>
                             </ul>
+                            <%--                                페이징 네비게이션 화면 영역--%>
+
 
                         </div>
+
+                        <%--                        다음 버튼 표시--%>
 
                     </div>
                 </div>
@@ -122,9 +143,9 @@ http://localhost:8080/resources/test.html-->
         </div>
         <!--        class="row content"-->
     </div>
-<%--    <div class="row content">--%>
-<%--        <h1>Content</h1>--%>
-<%--    </div>--%>
+    <%--    <div class="row content">--%>
+    <%--        <h1>Content</h1>--%>
+    <%--    </div>--%>
     <div class="row footer">
         <!--        <h1>Footer</h1>-->
         <div class="row fixed-bottom" style="z-index: -100">
