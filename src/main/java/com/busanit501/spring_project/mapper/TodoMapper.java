@@ -13,4 +13,6 @@ public interface TodoMapper {
     List<TodoVO> selectAll();
     // 하나 조회, 상세보기.
     TodoVO selectByTno(Long tno);
+    // 삭제
+    void delete(Long tno);
 }

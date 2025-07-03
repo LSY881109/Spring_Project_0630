@@ -40,4 +40,8 @@ public class TodoServiceTests {
         TodoDTO todoDTO = todoService.selectByTno(21L);
         log.info(todoDTO);
     }
+    @Test
+    public void testDeleteByTno() {
+        todoService.remove(15L);
+    }
 }

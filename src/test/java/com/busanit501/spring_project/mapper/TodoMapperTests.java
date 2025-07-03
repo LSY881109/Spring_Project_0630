@@ -43,4 +43,10 @@ public class TodoMapperTests {
         TodoVO todoVO = todoMapper.selectByTno(21L);
         log.info(todoVO);
     }
+
+    @Test
+    public void testDelete() {
+        // 실제 디비의 내용으로 tno 번호
+        todoMapper.delete(18L);
+    }
 }
