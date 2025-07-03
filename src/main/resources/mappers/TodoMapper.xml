@@ -29,4 +29,9 @@
     <update id="update">
         update tbl_todo set title = #{title}, dueDate = #{dueDate}, finished = #{finished} where tno = #{tno}
     </update>
+<!--    PageRequestDTO에서, getSkip 메서드가 있는데, -->
+<!--    Mybatis 가 기본적을 getXXX 이렇게 처기된 메서드는 #{skip} - getSkip-->
+    <select id="selectList">
+        select * from tbl_todo order by tno desc limit #{skip}, #{size}
+    </select>
 </mapper>

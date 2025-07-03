@@ -16,7 +16,7 @@ import javax.validation.constraints.Positive;
 public class PageRequestDTO {
     // 페이징 하기위한 준비물 준비하기.
     // 낱개로 따로따로 이동하기보다는, 한번에 담아서 전달하기.
-    @Builder.Default
+    @Builder.Default //빌더 패턴을 사용할 때, 필드에 기본값을 설정
     @Min(value = 1)
     @Positive
     private int page = 1;

@@ -1,6 +1,7 @@
 package com.busanit501.spring_project.mapper;
 
 import com.busanit501.spring_project.domain.TodoVO;
+import com.busanit501.spring_project.dto.PageRequestDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -59,4 +60,17 @@ public class TodoMapperTests {
         todoMapper.update(todoVO);
 
     }
+
+    // 페이징 처리가 된 전체 리스트,
+    @Test
+    public void testSelectListwithPage() {
+        // 준비물 , 화면에서 전달받은 페이징 정보가 필요,
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1) // 확인시, 이 페이지 번호만 변경하면 됨.
+                .size(10)
+                .build();
+        List<TodoVO> todoVOList = todoMapper.selectList(pageRequestDTO);
+        todoVOList.forEach(vo -> log.info(vo));
+     }
+
 }
