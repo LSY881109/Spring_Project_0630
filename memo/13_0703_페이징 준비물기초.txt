@@ -27,6 +27,7 @@ delete from tbl_todo where tno = 11;
 # 더미 데이터 만들기.
 insert into tbl_todo (title, dueDate, writer)
     (select title,dueDate,writer from tbl_todo);
+
 select count(tno) from tbl_todo;
 
 # 페이징 하기위한 마리아 디비에서 limit 기능 알아보기.
@@ -41,6 +42,13 @@ select * from tbl_todo order by tno desc limit  10, 10;
 #예시) 3페이지 10개 출력, (start)21~ (end)30번까지 출력.
 select * from tbl_todo order by tno desc limit  20, 10;
 
+#예시) 4페이지 10개 출력, (start)31~ (end)40번까지 출력.
+select * from tbl_todo order by tno desc limit  30, 10;
+
+규칙?
+#예시) 4(n=4)페이지 10개 출력, (start)31(n-1)*10)+1~ (end)40((n)*10)번까지 출력.
+select * from tbl_todo order by tno desc limit  30((n-1)*10), 10;
+
 # end 구하면, -9 하면, start 알수 있음.
 
 #예시) n페이지 10개 출력, nx10 - 9 ~ nx10 번까지 출력.
@@ -50,6 +58,7 @@ select * from tbl_todo order by tno desc limit  20, 10;
 # select * from tbl_todo order by tno desc limit (n-1)페이지, (페이지당 출력할 갯수);
 # select * from tbl_todo order by tno desc limit (n-1), 10;
 
+==================================================================
 #페이징 할 때, 필요한 준비물 중에서, 전체갯수 필요함.
 페이징당 10개 출력 조건.
 예) 전체 갯수 total : 75개,
