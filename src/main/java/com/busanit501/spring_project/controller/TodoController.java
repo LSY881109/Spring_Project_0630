@@ -56,8 +56,9 @@ public class TodoController {
     // 화면에서, TodoDTO 형식의 데이터를 전달을 받으면,
     // 각각 받는게 아니라, TodoDTO 모델 클래스로 한번에 받기 예시.
     @PostMapping("/register")
-    // @Valid TodoDTO todoDTO : 유효성 검사 적용
-    //  BindingResult bindingResult : 통과 못한 이유 원인 남겨져있다.
+    // 작성 순서 유지
+    // 순서1, @Valid TodoDTO todoDTO : 유효성 검사 적용
+    //  순서2, BindingResult bindingResult : 통과 못한 이유 원인 남겨져있다.
     public String registerPost(@Valid TodoDTO todoDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
