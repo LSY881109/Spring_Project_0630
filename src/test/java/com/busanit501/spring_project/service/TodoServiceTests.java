@@ -65,7 +65,7 @@ public class TodoServiceTests {
     public void testPaging() {
         // 더미 데이터 필요함, 화면에서 전달받은 페이징 정보를 담은 PageRequestDTO 가 필요함.
         PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-                .page(1)
+                .page(2)
                 .size(10)
                 .build();
         PageResponseDTO<TodoDTO> responseDTO = todoService.getList(pageRequestDTO);
