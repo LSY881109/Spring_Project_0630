@@ -34,10 +34,10 @@ public class TodoController {
     // 메소드명이 아니라, url 주소로 , 화면 연결을함.
     public void list2(Model model) {
         log.info("TodoController에서 작업, list 호출 ");
-        List<TodoDTO> dtoList = todoService.getAll();
-        dtoList.forEach(vo -> log.info(vo));
-        // 서비스로 부터 외주 맡겨서, 디비 정보를 받아와서, 화면에 전달, 탑재하기.
-        model.addAttribute("dtoList", todoService.getAll());
+//        List<TodoDTO> dtoList = todoService.getAll();
+//        dtoList.forEach(vo -> log.info(vo));
+//        // 서비스로 부터 외주 맡겨서, 디비 정보를 받아와서, 화면에 전달, 탑재하기.
+//        model.addAttribute("dtoList", todoService.getAll());
     }
 
     // 최종 url : /todo/register
