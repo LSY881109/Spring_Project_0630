@@ -82,7 +82,10 @@ http://localhost:8080/resources/test.html-->
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dtoList}" var="dto">
+<%--                            페이징 처리전--%>
+<%--                            <c:forEach items="${dtoList}" var="dto">--%>
+<%--                                페이징 처리 후--%>
+                                <c:forEach items="${responseDTO.dtoList}" var="dto">
                                 <tr>
                                     <th scope="row"><c:out value="${dto.tno}"></c:out></th>
 <%--                                    클릭시 : /todo/read?tno=21--%>
