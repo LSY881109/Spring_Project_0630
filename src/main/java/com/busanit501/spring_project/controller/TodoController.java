@@ -33,6 +33,8 @@ public class TodoController {
     // /WEB-INF/views/todo/list.jsp , 가리킴.
     // 자동 연결, 뷰 리졸버라는 친구의 업무.
     // 메소드명이 아니라, url 주소로 , 화면 연결을함.
+    // 웹화면에서, url: http://localhost:8080/todo/list?page=3&size=10
+    // page, size 정보를 자동 형변환 함, @Valid PageRequestDTO pageRequestDTO,
     public void list2(@Valid PageRequestDTO pageRequestDTO,
                       BindingResult bindingResult,
                       Model model) {

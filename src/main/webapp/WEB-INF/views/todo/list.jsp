@@ -102,6 +102,18 @@ http://localhost:8080/resources/test.html-->
                             </tbody>
 
                         </table>
+<%--                        페이징을 가리키는 네비게이션 , 부트 스트랩에서 가져와서 이용--%>
+                        <div class="float-end">
+                            <ul class="pagination flex-wrap">
+                                <c:forEach begin="${responseDTO.start}" end="${responseDTO.end}" var="num">
+                                    <li class="page-item"><a class="page-link" href="#">
+                                        ${num}
+                                    </a></li>
+                                </c:forEach>
+                            </ul>
+
+                        </div>
+
                     </div>
                 </div>
                 <!--        카드 끝 부분-->
