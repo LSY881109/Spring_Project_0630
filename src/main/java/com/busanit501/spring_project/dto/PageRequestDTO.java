@@ -13,6 +13,7 @@ import javax.validation.constraints.Positive;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+// 용도 : 화면 -> 서버 쪽으로 전달하는 용도.
 public class PageRequestDTO {
     // 페이징 하기위한 준비물 준비하기.
     // 낱개로 따로따로 이동하기보다는, 한번에 담아서 전달하기.
