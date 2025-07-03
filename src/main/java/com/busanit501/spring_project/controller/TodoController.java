@@ -80,7 +80,7 @@ public class TodoController {
 
         return "redirect:/todo/list";
     }
-    @GetMapping("/read")
+    @GetMapping({"/read","/modify"})
     public void read(Long tno, Model model) {
         // 서버에서, 디비로 부터 tno 번호로 하나의 todo 정보를 조회
         // 정방향, 찍고, 역방향으로 돌아온 상태.
