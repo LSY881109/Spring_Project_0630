@@ -113,7 +113,8 @@ http://localhost:8080/resources/test.html-->
                                 function (e) {
                                     // read , 읽기전용. 변결 불가.
                                     // 수정폼으로 가기. 데이터 변경 가능.
-                                    self.location = "/todo/list"
+                                    // self.location = "/todo/list"
+                                    self.location = "/todo/list?${pageRequestDTO.link}"
                                 }, false)
 
                             // 삭제하기 버튼 클릭 이벤트 처리.
