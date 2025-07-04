@@ -101,7 +101,10 @@ http://localhost:8080/resources/test.html-->
                             function (e) {
                                 // read , 읽기전용. 변결 불가.
                                 // 수정폼으로 가기. 데이터 변경 가능.
-                                self.location = "/todo/modify?tno="+${dto.tno}
+                                // 양쪽을 백티 기호로 감싸기, 문자열 처리하기가 쉽다.
+                                // 상세보기 화면 -> 수정 폼 화면으로 이동시 -> 쿼리 스트링으로 페이징정보를 달고서 간다.
+                                // 어디로 가죠? /todo/modify/ get 화면 처리로 가야함.
+                                self.location = `/todo/modify?tno=${dto.tno}&${pageRequestDTO.link}`
                             }, false)
 
                             document.querySelector(".btn-secondary").addEventListener("click",
