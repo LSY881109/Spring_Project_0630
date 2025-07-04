@@ -70,7 +70,7 @@
                         title like concat('%', #{keyword},'%')
                     </if>
                     <if test="type == 'w'.toString()">
-                        title like concat('%', #{keyword},'%')
+                        writer like concat('%', #{keyword},'%')
                     </if>
                 </foreach>
             </if>
