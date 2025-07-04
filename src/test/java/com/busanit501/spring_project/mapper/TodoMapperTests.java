@@ -94,7 +94,7 @@ public class TodoMapperTests {
                 .types(new String[]{"t","w"})
                 .keyword("수정")
                 // 필터 조건, and
-                .finished(true)
+                .finished(false)
                 .from(LocalDate.of(2025,7,1))
                 .to(LocalDate.of(2025,7,31))
                 .build();
