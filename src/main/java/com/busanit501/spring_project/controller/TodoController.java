@@ -109,6 +109,7 @@ public class TodoController {
     public String remove(Long tno, RedirectAttributes redirectAttributes) {
         log.info("삭제 작업 중.,");
         log.info("tno:"+tno);
+        // 컨트롤러 기능이 없어서, 서비스에게 외주 주기.
         todoService.remove(tno);
         return "redirect:/todo/list";
     }
