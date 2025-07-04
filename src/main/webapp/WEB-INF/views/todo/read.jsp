@@ -108,7 +108,9 @@ http://localhost:8080/resources/test.html-->
                                 function (e) {
                                     // read , 읽기전용. 변결 불가.
                                     // 수정폼으로 가기. 데이터 변경 가능.
-                                    self.location = "/todo/list"
+                                    // 추가, 상세보기 화면 -> 다시 목록 이동시, 페이징 정보를 달고 가기.
+                                    // 서버로부터 자동으로 넘겨 받은 객체, pageRequestDTO에서 link 꺼내서 사용하기.
+                                    self.location = "/todo/list?${pageRequestDTO.link}"
                                 }, false)
 
 
