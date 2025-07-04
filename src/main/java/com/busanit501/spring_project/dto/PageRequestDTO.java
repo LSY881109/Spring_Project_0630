@@ -9,6 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Builder
 @Data
@@ -61,6 +62,14 @@ public class PageRequestDTO {
             link = builder.toString();
         }
         return link;
+    }
+    // type , t, w 이면 true 검사기.
+    public boolean checkType(String type){
+        if(types==null || types.length==0){
+            return false;
+        }
+        //types -> {"t","w"}, type : t, w
+        return Arrays.stream(types).anyMatch(type::equals);
     }
 
 }
