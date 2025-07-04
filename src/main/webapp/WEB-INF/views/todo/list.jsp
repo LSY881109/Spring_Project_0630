@@ -64,8 +64,8 @@ http://localhost:8080/resources/test.html-->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">목록</h5>
-<%--                        검색시 필요한 input 태그 첨부, 검색 로직, 화면에서 서버로 --%>
-<%--                        데이터 전달시(검색어 전달), get 방식, --%>
+                        <%--                        검색시 필요한 input 태그 첨부, 검색 로직, 화면에서 서버로 --%>
+                        <%--                        데이터 전달시(검색어 전달), get 방식, --%>
                         <form action="/todo/list" method="get">
                             <input type="hidden" name="size" value="${pageRequestDTO.size}">
                             <div class="mb-3">
@@ -80,11 +80,17 @@ http://localhost:8080/resources/test.html-->
                                 <input type="checkbox" name="types" value="w"
                                 ${pageRequestDTO.checkType("w") ? "checked" : ""}
                                 >작성자
-                                <input type="text" name="keyword" class="form-control">
+                                <input type="text" name="keyword" class="form-control"
+                                       value='<c:out value="${pageRequestDTO.keyword}"/> '
+                                >
                             </div>
                             <div class="input-group mb-3 dueDateDiv">
-                                <input type="date" name="from" class="form-control">
-                                <input type="date" name="to" class="form-control">
+                                <input type="date" name="from" class="form-control"
+                                       value="${pageRequestDTO.from}"
+                                >
+                                <input type="date" name="to" class="form-control"
+                                       value="${pageRequestDTO.to}"
+                                >
                             </div>
                             <div class="input-group mb-3">
                                 <div class="float-end">
