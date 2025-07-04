@@ -83,4 +83,18 @@ public class TodoMapperTests {
         log.info("total : " + total);
      }
 
+     // 검색, 필터 연습, 동적 쿼리1
+    @Test
+    public void testSelectSearch() {
+        // 검색 준비물, 검색어, 더미 데이터 생성,
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .types(new String[]{"t","w"})
+                .keyword("오늘")
+                .build();
+        List<TodoVO> voList= todoMapper.selectList(pageRequestDTO);
+        voList.forEach(vo -> log.info(vo));
+    }
+
 }

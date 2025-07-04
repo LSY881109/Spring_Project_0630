@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
+import java.time.LocalDate;
 
 @Builder
 @Data
@@ -30,6 +31,18 @@ public class PageRequestDTO {
 
     // 페이징의 정보를 유지하기,link = page=1&size=10
     private String link;
+
+    // 검색과 필터를 위한 정보 준비
+    // types, 제목 t , 작성자 w 검색 할지
+    // keyword , 검색어
+    // finished 완료 여부
+    // from, to, 기한
+    private String[] types;
+    private String keyword;
+    private boolean finished;
+    private LocalDate from;
+    private LocalDate to;
+
 
     // 건너띄기 할 데이터의 갯수,
     // 1페이지 10개,
