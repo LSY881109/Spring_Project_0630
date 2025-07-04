@@ -208,8 +208,15 @@ http://localhost:8080/resources/test.html-->
                             // a 태그만 이벤트 처리하겠다. 의도.
                             // data-num : 페이지 정보,
                             const num = target.getAttribute("data-num")
+
+                            // 목록 -> 상세보기 -> 전달시, 이너 html, 히든으로 페이징 정보를 전달.
+                            const formObj = document.querySelector("form")
+                            formObj.innerHTML += `<input type='hidden' name = 'page' value='\${num}'>`
+                            formObj.submit()
+
+
                             // ` 백틱 사용.
-                            self.location = `/todo/list?page=\${num}`
+                            // self.location = `/todo/list?page=\${num}`
 
                         }, false)
                     </script>
