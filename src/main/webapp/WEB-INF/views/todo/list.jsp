@@ -81,8 +81,7 @@ http://localhost:8080/resources/test.html-->
                                 ${pageRequestDTO.checkType("w") ? "checked" : ""}
                                 >작성자
                                 <input type="text" name="keyword" class="form-control"
-                                       value='<c:out value="${pageRequestDTO.keyword}"/> '
-                                >
+                                       value='<c:out value="${pageRequestDTO.keyword}"/>'>
                             </div>
                             <div class="input-group mb-3 dueDateDiv">
                                 <input type="date" name="from" class="form-control"
