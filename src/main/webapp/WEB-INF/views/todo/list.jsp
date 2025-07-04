@@ -210,7 +210,9 @@ http://localhost:8080/resources/test.html-->
                             const num = target.getAttribute("data-num")
 
                             // 목록 -> 상세보기 -> 전달시, 이너 html, 히든으로 페이징 정보를 전달.
+                            // 검색 폼!!
                             const formObj = document.querySelector("form")
+                            //
                             formObj.innerHTML += `<input type='hidden' name = 'page' value='\${num}'>`
                             formObj.submit()
 
