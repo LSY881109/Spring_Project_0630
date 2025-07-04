@@ -94,7 +94,7 @@ http://localhost:8080/resources/test.html-->
                             <div class="input-group mb-3">
                                 <div class="float-end">
                                     <button class="btn btn-primary" type="submit">검색</button>
-                                    <button class="btn btn-info" type="reset">초기화</button>
+                                    <button class="btn btn-info clearBtn" type="reset">초기화</button>
                                 </div>
                             </div>
 
@@ -190,6 +190,13 @@ http://localhost:8080/resources/test.html-->
                     </div>
                     <%--                            페이징 이벤트 처리 하기.--%>
                     <script>
+                        // 검색 화면 초기화 클릭시, 기본 전체 페이지 이동하기.
+                        document.querySelector(".clearBtn").addEventListener("click", function (e){
+                            e.preventDefault();
+                            e.stopPropagation();
+                            self.location = '/todo/list'
+                        })
+
                         document.querySelector(".pagination").addEventListener("click", function (e) {
                             e.preventDefault();
                             e.stopPropagation();
