@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -54,11 +56,51 @@ public class PageRequestDTO {
         return (page - 1) * size;
     }
 
+    // 업그레이드
+    // 기존 페이징 정보만 있었고,
+    // 추가하기, 검색 정보들 추가하기.
     public String getLink() {
         if (link == null) {
             StringBuilder builder = new StringBuilder();
             builder.append("page="+this.page);
             builder.append("&size="+this.size);
+
+            // 검색시, types ,t,w 다 선택하고, finished 완료여부 체크하고,
+            // 검색어 있고,
+            // 기한도 있고
+            // 그랬을 때, url :
+            //http://localhost:8080/todo/list?size=10&types=t&types=w&keyword=%EC%88%98%EC%A0%95&from=2025-07-01&to=2025-07-31
+
+            //http://localhost:8080/todo/list
+            // ?size=10&
+            // finished=on
+            if(finished) {
+                builder.append("&finished=on");
+            }
+            //&types=t&types=w&
+            if(types != null && types.length > 0) {
+                for (int i = 0; i < types.length; i++) {
+                    builder.append("&types="+types[i]);
+                }
+            }
+//            keyword=%ED%85%8C%EC%8A%A4%ED%8A%B8&
+            // 검색어가 한글이 안깨지게 인코딩 타입을 UTF-8 미리 변환 하기.
+            if(keyword != null && keyword.length() > 0) {
+                try{
+                    builder.append("&keyword="+ URLEncoder.encode(keyword,"UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+
+//            from=2025-07-01&to=2025-07-31
+            if(from != null) {
+                builder.append("&from="+from.toString());
+            }
+            if(to != null) {
+                builder.append("&to="+to.toString());
+            }
+
             link = builder.toString();
         }
         return link;
