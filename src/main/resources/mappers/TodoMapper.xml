@@ -55,6 +55,7 @@
 --         반복되는 sql를 아이디를 이용해서 따로 지정 한 후, 다른 곳에서, 이 부분을 재사용,
 --        sql 분리한 부분을 , 불러오기 해서 재사용할 예정
 
+        <include refid="search"></include>
 
         order by tno desc limit #{skip}, #{size}
     </select>
@@ -90,8 +91,13 @@
 
         </where>
     </sql>
+    
+<!--    검색 조건부 sql를 포함시키기, -->
+<!--    1)조건이 있으면, 조건에 해당하는 부분 검색, -->
+<!--    2) 조건이 없으면, 지금처럼 전체 조회. -->
     <select id="getCount">
         select count(tno)
         from tbl_todo
+        <include refid="search"></include>
     </select>
 </mapper>

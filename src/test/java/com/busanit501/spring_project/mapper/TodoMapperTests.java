@@ -90,8 +90,13 @@ public class TodoMapperTests {
         PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
                 .page(1)
                 .size(10)
+                // 검색 조건
                 .types(new String[]{"t","w"})
-                .keyword("오늘")
+                .keyword("수정")
+                // 필터 조건, and
+                .finished(true)
+                .from(LocalDate.of(2025,7,1))
+                .to(LocalDate.of(2025,7,31))
                 .build();
         List<TodoVO> voList= todoMapper.selectList(pageRequestDTO);
         voList.forEach(vo -> log.info(vo));
