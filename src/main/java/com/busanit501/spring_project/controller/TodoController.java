@@ -124,7 +124,9 @@ public class TodoController {
         redirectAttributes.addAttribute("page", pageRequestDTO.getPage());
         redirectAttributes.addAttribute("size", pageRequestDTO.getSize());
 
-        return "redirect:/todo/list";
+        // 삭제 후, (로직처리) PRG 패턴, 쿼리스트링으로, 검색 조건 달아주기.
+        // pageRequestDTO 의 링크를 이용하기.
+        return "redirect:/todo/list"+pageRequestDTO.getLink();
     }
 
     @PostMapping("/modify")
