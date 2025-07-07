@@ -152,9 +152,12 @@ public class TodoController {
         // 쿼리 스트링으로 , 서버 - 화면으로 전달한다.
         redirectAttributes.addAttribute("page", pageRequestDTO.getPage());
         redirectAttributes.addAttribute("size", pageRequestDTO.getSize());
+        // 수정 후, -> 상세 조회로 이동, : 필요한 준비물, 현재 tno 번호가 필요함.
+        redirectAttributes.addAttribute("tno", todoDTO.getTno());
 
         //PRG 패턴,
-        return "redirect:/todo/list";
+        // 수정 후, -> 상세 조회로 이동,
+        return "redirect:/todo/read";
 
     }
 
